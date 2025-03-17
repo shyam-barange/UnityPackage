@@ -10,5 +10,8 @@
     "email": "nikhil@multiset.ai",
     "url": "https://www.multiset.ai/"
   },
-  "dependencies": {}
+  "dependencies": {
+     "com.unity.cloud.draco": "5.1.7",
+     "com.unity.cloud.gltfast": "6.8.0"
+  }
 }
