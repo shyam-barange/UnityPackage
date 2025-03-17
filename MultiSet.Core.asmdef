@@ -1,0 +1,19 @@
+{
+    "name": "MultiSet-SDK",
+    "rootNamespace": "",
+    "references": [
+        "Unity.TextMeshPro",
+        "Draco",
+        "glTFast",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

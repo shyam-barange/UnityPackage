@@ -1,0 +1,14 @@
+{
+  "name": "com.multiset.sdk",
+  "version": "1.5.0",
+  "displayName": "MultiSet-SDK",
+  "description": "The MultiSet developer documentation is your essential resource for creating and integrating MultiSet features into your application.",
+  "unity": "6000.0",
+  "unityRelease": "23f",
+  "author": {
+    "name": "MiultiSet",
+    "email": "nikhil@multiset.ai",
+    "url": "https://www.multiset.ai/"
+  },
+  "dependencies": {}
+}
