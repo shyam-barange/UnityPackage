@@ -24,7 +24,7 @@
     {
       "displayName": "Single Frame Localization",
       "description": "Localization Scene which uses Single Frame for localization",
-      "path": "Samples~/Single Frame Localization"
+      "path": "Samples~/SingleFrameLocalization"
     },
     {
       "displayName": "Navigation",
