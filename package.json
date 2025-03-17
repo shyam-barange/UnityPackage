@@ -14,5 +14,22 @@
      "com.unity.cloud.draco": "5.1.7",
      "com.unity.cloud.gltfast": "6.8.0",
      "com.unity.xr.arfoundation": "6.0.3"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Localization",
+      "description": "Main Localization Scene which uses Multiple Frames for better localization",
+      "path": "Samples~/Localization"
+    },
+    {
+      "displayName": "Single Frame Localization",
+      "description": "Localization Scene which uses Single Frame for localization",
+      "path": "Samples~/Single Frame Localization"
+    },
+    {
+      "displayName": "Navigation",
+      "description": "Main Navigation Scene",
+      "path": "Samples~/Navigation"
+    }
+  ]
 }
