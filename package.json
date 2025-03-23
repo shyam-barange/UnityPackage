@@ -1,6 +1,6 @@
 {
   "name": "com.multiset.sdk",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "displayName": "MultiSet-SDK",
   "description": "The MultiSet developer documentation is your essential resource for creating and integrating MultiSet features into your application.",
   "unity": "6000.0",
@@ -17,19 +17,9 @@
   },
   "samples": [
     {
-      "displayName": "Localization",
-      "description": "Main Localization Scene which uses Multiple Frames for better localization",
-      "path": "Samples~/Localization"
-    },
-    {
-      "displayName": "Single Frame Localization",
-      "description": "Localization Scene which uses Single Frame for localization",
-      "path": "Samples~/SingleFrameLocalization"
-    },
-    {
-      "displayName": "Navigation",
-      "description": "Main Navigation Scene",
-      "path": "Samples~/Navigation"
+      "displayName": "Sample Scenes",
+      "description": "Import Localization and Navigation Scenes for MultiSet SDK demo",
+      "path": "Samples~/Scenes"
     }
   ]
 }
