@@ -182,8 +182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Point of Interest
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8deda79cfaa4348faac0cf5dcc6c6d4d, type: 2}
+  m_sharedMaterial: {fileID: -7668262564599649814, guid: 8deda79cfaa4348faac0cf5dcc6c6d4d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8.65
+  m_fontSize: 7.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -378,8 +378,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: {fileID: 4215192899107776191}
-  blue: {fileID: 2100000, guid: 8b8ea4348d7cde143bf21ec4f6e9c76c, type: 2}
-  green: {fileID: 2100000, guid: 3c7335f6276e5ed4aa18428bba55a115, type: 2}
   backgroundSignImage: {fileID: 6710702747304338917}
 --- !u!222 &2095514706478700230
 CanvasRenderer:

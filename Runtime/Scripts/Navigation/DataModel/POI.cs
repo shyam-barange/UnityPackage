@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class POI : ListItemData
@@ -48,7 +46,6 @@ public class POI : ListItemData
             NavigationController.instance.ArrivedAtDestination();
         }
     }
-
 }
 
 // various POI type, could be used to render POI specific icon

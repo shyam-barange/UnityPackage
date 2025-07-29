@@ -8,6 +8,7 @@
         _ArrowSpacing ("Arrow Spacing", Range(0.1, 10.0)) = 2.0
         _Intensity ("Intensity", Range(0.1, 5.0)) = 1.0
         _ScrollSpeed ("Scroll Speed", Range(-2.0, 2.0)) = 0.0
+        _PathLength ("Path Length", Float) = 1.0
     }
     
     SubShader
@@ -56,34 +57,36 @@
             float _ArrowSpacing;
             float _Intensity;
             float _ScrollSpeed;
-            
+            float _PathLength;
+
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                
-                // Apply texture tiling and offset based on arrow size and spacing
-                float2 tiling = float2(_MainTex_ST.x / _ArrowSize, _MainTex_ST.y);
-                float2 offset = float2(_MainTex_ST.z + _Time.y * _ScrollSpeed, _MainTex_ST.w);
-                
-                // Calculate UV coordinates with proper tiling
-                // The _ArrowSpacing controls how far apart each arrow is
-                o.uv = v.uv * float2(_ArrowSpacing, 1.0) * tiling + offset;
-                
+
+                // Convert UV.x (normalized) into real-world distance along path
+                float distAlongPath = v.uv.x * _PathLength;
+
+                // Repeat arrows every _ArrowSpacing units in world space
+                float uvRepeat = distAlongPath / _ArrowSpacing;
+
+                // Scroll based on time
+                uvRepeat += _Time.y * _ScrollSpeed;
+
+                // Final UV scaled by arrow size
+                o.uv = float2(uvRepeat, v.uv.y) * (_MainTex_ST.xy / _ArrowSize);
+
                 o.color = v.color * _Color;
-                
-                UNITY_TRANSFER_FOG(o,o.vertex);
+                UNITY_TRANSFER_FOG(o, o.vertex);
                 return o;
             }
-            
+
             fixed4 frag (v2f i) : SV_Target
             {
-                // Sample texture with repeating pattern
+                // Repeat the arrow using frac()
                 fixed4 col = tex2D(_MainTex, frac(i.uv)) * i.color * _Intensity;
-                
-                // Apply fog
+
                 UNITY_APPLY_FOG(i.fogCoord, col);
-                
                 return col;
             }
             ENDCG

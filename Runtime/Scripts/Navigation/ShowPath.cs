@@ -6,7 +6,7 @@ using UnityEngine.AI;
 /**
   * Visualizes path between two points on NavMesh.
   *
-  * Path is calculated every 0.1 second, Source: https://docs.unity3d/com/ScriptReference/AI.NavMesh.CalculatePath.html
+  * Path is calculated every 0.5 second (twice per second) to reduce fluctuations
   * 
   * Line is drawn with LineRenderer using path.corners, Source: https://gamedev.stackexchange.com/a/86255
   * 
@@ -24,6 +24,9 @@ public class ShowPath : MonoBehaviour
 
     // timer
     float _elapsed = 0.0f;
+
+    [Tooltip("Path update frequency in seconds")]
+    public float pathUpdateFrequency = 0.5f; // Update twice per second
 
     [Tooltip("Height of the path above NavMesh")]
     public float pathHeightAboveGround = 0.1f; // in meters
@@ -44,10 +47,16 @@ public class ShowPath : MonoBehaviour
     // true when showCornersToggle was used, needed to track change so we don't loop all the time 
     bool cornerVisibilityHasChanged = false;
 
+    // Flag to track if we need to force path recalculation
+    bool forcePathRecalculation = false;
+
     void Awake()
     {
         instance = this;
         line = GetComponent<LineRenderer>();
+
+        line.alignment = LineAlignment.TransformZ;
+        line.transform.forward = Vector3.up; // Forces it to stay flat and not roll
     }
 
     void Start()
@@ -62,15 +71,19 @@ public class ShowPath : MonoBehaviour
         if (a != null && b != null)
         {
             line.enabled = true;
-            line.SetPosition(0, a.position); // set first point of line
-            StartCoroutine(DrawPath(path));
-            PathEstimationUtils.instance.UpdateEstimation(path.corners);
 
-            // Calculate fastest way only every 0.1 second, because it is heavy calculation
+            // Calculate path only twice per second (every 0.5 seconds)
             _elapsed += Time.deltaTime;
-            if (_elapsed > 0.1f)
+            if (_elapsed > pathUpdateFrequency || forcePathRecalculation)
             {
-                _elapsed -= 0.1f;
+                // line.SetPosition(0, a.position); // set first point of line
+
+                StartCoroutine(DrawPath(path));
+                PathEstimationUtils.instance.UpdateEstimation(path.corners);
+
+
+                _elapsed = 0.0f;
+                forcePathRecalculation = false;
                 NavMesh.CalculatePath(a.position, b.position, NavMesh.AllAreas, path);
             }
         }
@@ -145,6 +158,7 @@ public class ShowPath : MonoBehaviour
     public void SetPositionFrom(Transform from)
     {
         a = from;
+        forcePathRecalculation = true;
     }
 
     // set Transform of path end
@@ -154,7 +168,8 @@ public class ShowPath : MonoBehaviour
 
         if (b != null)
         {
-            // already calculate because it calculates only every 0.1 second
+            // Force immediate path calculation when destination is set
+            forcePathRecalculation = true;
             NavMesh.CalculatePath(a.position, b.position, NavMesh.AllAreas, path);
         }
     }
@@ -232,7 +247,10 @@ public class ShowPath : MonoBehaviour
         cornerVisibilityHasChanged = false;
         foreach (var corner in visibleCorners)
         {
-            corner.gameObject.SetActive(show);
+            if (corner != null)
+            {
+                corner.gameObject.SetActive(show);
+            }
         }
     }
 }

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using MultiSet;
 
@@ -29,6 +26,9 @@ public class NavigationUIController : MonoBehaviour
 
     [Tooltip("Parent GameObject of navigation progress slider")]
     public GameObject navigationProgressSlider;
+
+    [Tooltip("Navigation Path Material")]
+    public Material material;
 
     void Awake()
     {
@@ -76,6 +76,16 @@ public class NavigationUIController : MonoBehaviour
         poiList.RenderPOIs();
     }
 
+    public void ResetPoiSearch()
+    {
+        poiList.ResetPOISearch();
+    }
+
+    public void RenderPoiCall()
+    {
+        poiList.RenderPOIs();
+    }
+
     // User clicked to start navigation. Is called from ListItemUI.cs
     public void ClickedStartNavigation(POI poi)
     {
@@ -111,13 +121,19 @@ public class NavigationUIController : MonoBehaviour
 
         int distance = PathEstimationUtils.instance.getRemainingDistanceMeters();
         string distanceText = distance + "";
+
+        if (distance > 1)
+        {
+            if (material != null)
+                material.SetFloat("_PathLength", distance);
+        }
         if (distance <= 1)
         {
-            distanceText += " meter remaining";
+            distanceText += " m remaining";
         }
         else
         {
-            distanceText += " meters remaining";
+            distanceText += " m remaining";
         }
         remainingDistance.text = distanceText;
     }
