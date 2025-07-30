@@ -1,6 +1,6 @@
 {
     "name": "MultiSet-SDK.Editor",
-    "rootNamespace": "",
+    "rootNamespace": "MultiSet",
     "references": [
         "MultiSet-SDK"
     ],
