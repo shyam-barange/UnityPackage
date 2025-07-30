@@ -8,7 +8,7 @@ Before getting started, ensure you have:
 
 - **Unity 6000.0.36f1 or later** (minimum: Unity 2022.3.36+)
 - **Valid MultiSet credentials** (Client ID and Client Secret)
-- **Map/MapSet codes** from your MultiSet dashboard
+- **Map/MapSet/ModelSet codes** from your MultiSet dashboard
 - **iOS/Android development tools** for mobile deployment
 - **Basic Unity development experience**
 
@@ -224,6 +224,6 @@ https://github.com/shyam-barange/UnityPackage.git#latest
 
 ---
 
-**Version**: 1.5.6  
+**Version**: 1.8.0  
 **Unity Compatibility**: 6000.0.36f1+  
-**Last Updated**: 2024
+**Last Updated**: July 2025
