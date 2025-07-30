@@ -88,12 +88,12 @@ Assets/Samples/MultiSet-SDK/[version]/Sample Scenes/
 
 2. Select the **MultisetSdkManager** GameObject in the Hierarchy
 
-3. In the Inspector, locate the **LocalizationManager** component
+3. In the Inspector, locate the **MapLocalizationManager** component
 
 4. Configure your localization method:
    - **Map**: For single, specific locations
    - **MapSet**: For multiple related locations or larger coverage areas
-   - **ModelSet**: For 3D model tracking scenarios
+   - **ModelSet**: For 3D model tracking scenarios in **ModelTrackingManager**
 
 5. Enter your corresponding code:
    - **Map Code**: For individual location mapping
@@ -108,11 +108,12 @@ Assets/Samples/MultiSet-SDK/[version]/Sample Scenes/
 - Ensure **iOS Build Support** is installed
 - Set **Target SDK** to iOS 12.0 or later
 - Enable **Camera Usage Description** in Player Settings
+- ARKit XR-Plugin Provider must be enabled.
 
 #### For Android:
 - Ensure **Android Build Support** is installed
-- Set **Minimum API Level** to 24 or higher
-- Enable camera permissions in Android manifest
+- Set **Minimum API Level** to 26 or higher
+- ARCore XR-Plugin Provider must be enabled
 
 
 ## 🏗️ Build and Deploy
@@ -130,7 +131,6 @@ Assets/Samples/MultiSet-SDK/[version]/Sample Scenes/
 - **Scripting Backend**: IL2CPP
 
 #### Android Settings:
-- **Texture Compression**: ASTC
 - **Scripting Backend**: IL2CPP
 - **Target Architectures**: ARM64
 
@@ -145,10 +145,10 @@ Assets/Samples/MultiSet-SDK/[version]/Sample Scenes/
 
 ### Core Classes
 
-- **`MultiSetManager`**: Main SDK manager and entry point
-- **`LocalizationManager`**: Handles localization operations
-- **`NavigationManager`**: Manages AR navigation features
-- **`ModelSetTracker`**: Controls 3D model tracking
+- **`MultiSetSdkManager`**: Main SDK manager and entry point
+- **`MapLocalizationManager`**: Handles localization operations
+- **`NavigationController`**: Manages AR navigation features
+- **`ModelSetTrackingManager`**: Controls 3D model tracking
 
 
 ## 📱 Platform Requirements
@@ -159,7 +159,7 @@ Assets/Samples/MultiSet-SDK/[version]/Sample Scenes/
 - **Camera access permission**
 
 ### Android
-- **Android 7.0+ (API level 24)**
+- **Android API level 26 or higher**
 - **ARCore supported device**
 - **Camera access permission**
 
@@ -183,18 +183,6 @@ Assets/Samples/MultiSet-SDK/[version]/Sample Scenes/
 - **Error**: Platform-specific compilation errors
 - **Solution**: Check platform requirements, update XR settings
 
-### Performance Optimization
-
-- Use **Level 2** quality settings for mobile deployment
-- Enable **GPU Instancing** when available
-- Limit concurrent AR operations for better performance
-
-### Debug Information
-
-Enable verbose logging by adding this to your initialization:
-```csharp
-MultiSetManager.Instance.SetLogLevel(LogLevel.Verbose);
-```
 
 ## 📞 Support
 
