@@ -23,7 +23,7 @@ Before getting started, ensure you have:
 5. Enter the following URL and click **Add**:
 
 ```
-https://github.com/shyam-barange/UnityPackage.git
+https://github.com/MultiSet-AI/multiset-unity-sdk.git
 ```
 
 ### Verify Installation
@@ -207,7 +207,7 @@ To update the SDK:
 
 For manual updates, use:
 ```
-https://github.com/shyam-barange/UnityPackage.git#latest
+https://github.com/MultiSet-AI/multiset-unity-sdk.git#latest
 ```
 
 ---
