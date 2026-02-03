@@ -1,5 +1,11 @@
 # Changelog
-SDK 1.10.1
+SDK 1.10.2
+
+## [1.10.2] - 2025-03-02
+### Added
+- Multi Object Tracking bug fixes
+- Memory leak issue fixes
+- Get Localization and Object Tracking response from event callback
 
 ## [1.10.1] - 2025-12-01
 ### Added

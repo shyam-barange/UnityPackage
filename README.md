@@ -6,7 +6,7 @@ The MultiSet SDK provides powerful localization, navigation, and AR tracking cap
 
 Before getting started, ensure you have:
 
-- **Unity 6000.0.36f1 or later** (minimum: Unity 2022.3.36+)
+- **Unity 6000.3.3f1 or later**
 - **Valid MultiSet credentials** (Client ID and Client Secret)
 - **Map/MapSet/ModelSet codes** from your MultiSet dashboard
 - **iOS/Android development tools** for mobile deployment
@@ -14,7 +14,7 @@ Before getting started, ensure you have:
 
 ## 🚀 Installation
 
-### Method 1: Git URL (Recommended)
+### Git URL (Recommended)
 
 1. Open Unity and create a new **3D project** or open your existing project
 2. Navigate to **Window → Package Manager**
@@ -33,10 +33,10 @@ After installation, you should see **"MultiSet-SDK"** listed in the Package Mana
 ## 📦 Dependencies
 
 The SDK automatically installs these required packages:
-- **Unity Cloud - Draco** (5.1.7)
-- **Unity Cloud - glTFast** (6.8.0) 
-- **AR Foundation** (6.0.3)
-- **AI Navigation** (2.0.5)
+- **Unity Cloud - Draco** (5.4.0)
+- **Unity Cloud - glTFast** (6.14.1) 
+- **AR Foundation** (6.0.6)
+- **AI Navigation** (2.0.9)
 
 ## 🎯 Sample Scenes
 
@@ -59,11 +59,16 @@ Assets/Samples/MultiSet-SDK/[version]/Sample Scenes/
 
 | Scene | Purpose | Location |
 |-------|---------|----------|
+| **Mapping.unity** | Basic mapping functionality | `Mapping/` |
 | **Localization.unity** | Basic localization functionality | `Localization/` |
 | **Single Frame Localization.unity** | Single-shot localization | `Localization/` |
 | **ModelSetTracking.unity** | 3D model tracking | `ModelSetTracking/` |
 | **Navigation.unity** | AR navigation features | `Navigation/` |
 | **Training.unity** | Training mode capabilities | `Training/` |
+| **OnDeviceLocalization.unity** | OnDevice Localization capabilities | `OnDeviceLocalization/` |
+| **MapSetAlignment.unity** | Align Mapsets within Unity Editor | `AlignMapSet/` |
+| **SimulationDataCapture.unity** | Simulation Data Capture | `SimulationData/` |
+
 
 ## ⚙️ Configuration
 
@@ -146,6 +151,7 @@ Assets/Samples/MultiSet-SDK/[version]/Sample Scenes/
 ### Core Classes
 
 - **`MultiSetSdkManager`**: Main SDK manager and entry point
+- **`MappingManager`**: Scan area and create map
 - **`MapLocalizationManager`**: Handles localization operations
 - **`NavigationController`**: Manages AR navigation features
 - **`ModelSetTrackingManager`**: Controls 3D model tracking
@@ -169,7 +175,7 @@ Assets/Samples/MultiSet-SDK/[version]/Sample Scenes/
 
 #### Package Installation Issues
 - **Error**: "Package not found"
-- **Solution**: Ensure Unity version is 6000.0.36f1 or later, verify Git URL is correct
+- **Solution**: Ensure Unity version is 6000.3.3f1 or later, verify Git URL is correct
 
 #### Credential Errors
 - **Error**: "Authentication failed" 
@@ -212,6 +218,6 @@ https://github.com/MultiSet-AI/multiset-unity-sdk.git#latest
 
 ---
 
-**Version**: 1.8.0  
-**Unity Compatibility**: 6000.0.36f1+  
-**Last Updated**: July 2025
+**Version**: 1.10.2  
+**Unity Compatibility**: 6000.3.3f1+  
+**Last Updated**: Feb 2026
