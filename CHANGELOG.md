@@ -1,11 +1,33 @@
 # Changelog
-SDK 1.10.2
+SDK 1.11.5
 
-## [1.10.2] - 2025-03-02
+## [1.11.5] - 2026-21-04
 ### Added
-- Multi Object Tracking bug fixes
-- Memory leak issue fixes
-- Get Localization and Object Tracking response from event callback
+- Multiplayer support added
+
+## [1.11.4] - 2026-14-04
+### Added
+- Optimized multi-frame flow, fixed hintPosition, and improved Single Frame navigation.
+- Navigation issue fixes
+
+## [1.11.3] - 2026-26-03
+### Added
+- Updated Unity version requirement to 6000.3.11f1
+
+## [1.11.2] - 2026-18-02
+### Added
+- Fixed issues with multi-object tracking
+- Added the ability to retrieve a MapCode after creating a new map
+
+## [1.11.1] - 2026-10-02
+### Added
+- New scene added to export NavMesh data that can be used to Multiset Wearable VPS
+
+## [1.11.0] - 2026-03-02
+### Added
+- Resolved issues in Multi-Object Tracking
+- Fixed multiple memory leak problems to improve stability
+- Added event-based callbacks for Localization and Object Tracking responses
 
 ## [1.10.1] - 2025-12-01
 ### Added
