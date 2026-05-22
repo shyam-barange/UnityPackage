@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: -1114014857, guid: 5e2b4f19fefec46a08626f272dff56e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MultiSetSDK.dll::MultiSet.ScreenOrientationController
-  sceneOrientation: 2
+  sceneOrientation: 1
 --- !u!114 &8669658995958821923
 MonoBehaviour:
   m_ObjectHideFlags: 0
