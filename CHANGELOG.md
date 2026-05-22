@@ -1,5 +1,9 @@
 # Changelog
-SDK 1.14.0
+SDK 1.14.1
+
+## [1.14.1] - 2026-22-05
+### Added
+- Support added for Portrait Mapping
 
 
 ## [1.14.0] - 2026-13-05
