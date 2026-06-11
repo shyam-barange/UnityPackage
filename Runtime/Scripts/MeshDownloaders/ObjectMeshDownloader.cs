@@ -44,21 +44,18 @@ namespace MultiSet
             isDownloading = true;
 
             MultisetSdkManager multisetSdkManager = FindFirstObjectByType<MultisetSdkManager>();
-            ObjectTrackingManager objectTrackingManager = FindFirstObjectByType<ObjectTrackingManager>();
+            // Resolve the active object-tracking manager via interface so the core
+            // package stays decoupled from the optional on-device assembly:
+            // OnDeviceObjectTrackingManager lives in MultiSetSDK.OnDevice.dll, which
+            // not every SDK user installs. ObjectTrackingManager (core) and
+            // OnDeviceObjectTrackingManager (on-device) both implement IObjectTrackingTarget.
+            IObjectTrackingTarget objectTrackingTarget = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
+                .OfType<IObjectTrackingTarget>()
+                .FirstOrDefault();
 
-            OnDeviceObjectTrackingManager onDeviceObjectTrackingManager = FindFirstObjectByType<OnDeviceObjectTrackingManager>();
-
-
-
-            if (objectTrackingManager != null)
+            if (objectTrackingTarget != null)
             {
-                objectCodes = objectTrackingManager.objectCodes
-                    .Where(code => !string.IsNullOrWhiteSpace(code))
-                    .ToList();
-            }
-            else if (objectTrackingManager == null && onDeviceObjectTrackingManager != null)
-            {
-                objectCodes = onDeviceObjectTrackingManager.objectCodes
+                objectCodes = objectTrackingTarget.ObjectCodes
                     .Where(code => !string.IsNullOrWhiteSpace(code))
                     .ToList();
             }

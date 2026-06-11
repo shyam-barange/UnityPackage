@@ -54,24 +54,20 @@ namespace MultiSet
 
             MultisetSdkManager multisetSdkManager = FindFirstObjectByType<MultisetSdkManager>();
 
-            MapLocalizationManager mapLocalizationManager = FindFirstObjectByType<MapLocalizationManager>();
-            SingleFrameLocalizationManager singleFrameLocalizationManager = FindFirstObjectByType<SingleFrameLocalizationManager>();
-            OnDeviceLocalizationManager onDeviceLocalizationManager = FindFirstObjectByType<OnDeviceLocalizationManager>();
+            // Resolve the active localization manager via interface so the core
+            // package stays decoupled from the optional on-device assembly:
+            // OnDeviceLocalizationManager lives in MultiSetSDK.OnDevice.dll, which
+            // not every SDK user installs. MapLocalizationManager /
+            // SingleFrameLocalizationManager (core) and OnDeviceLocalizationManager
+            // (on-device) all implement ILocalizationTarget.
+            ILocalizationTarget localizationTarget = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
+                .OfType<ILocalizationTarget>()
+                .FirstOrDefault();
 
-            if (mapLocalizationManager != null)
+            if (localizationTarget != null)
             {
-                mapOrMapsetCode = mapLocalizationManager.mapOrMapsetCode;
-                itsMap = mapLocalizationManager.localizationType == LocalizationType.Map;
-            }
-            else if (singleFrameLocalizationManager != null)
-            {
-                mapOrMapsetCode = singleFrameLocalizationManager.mapOrMapsetCode;
-                itsMap = singleFrameLocalizationManager.localizationType == LocalizationType.Map;
-            }
-            else if (onDeviceLocalizationManager != null)
-            {
-                mapOrMapsetCode = onDeviceLocalizationManager.mapOrMapsetCode;
-                itsMap = onDeviceLocalizationManager.localizationType == LocalizationType.Map;
+                mapOrMapsetCode = localizationTarget.MapOrMapsetCode;
+                itsMap = localizationTarget.LocalizationType == LocalizationType.Map;
             }
 
             if (string.IsNullOrWhiteSpace(mapOrMapsetCode))
