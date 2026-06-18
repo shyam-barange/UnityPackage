@@ -54,12 +54,6 @@ namespace MultiSet
 
             MultisetSdkManager multisetSdkManager = FindFirstObjectByType<MultisetSdkManager>();
 
-            // Resolve the active localization manager via interface so the core
-            // package stays decoupled from the optional on-device assembly:
-            // OnDeviceLocalizationManager lives in MultiSetSDK.OnDevice.dll, which
-            // not every SDK user installs. MapLocalizationManager /
-            // SingleFrameLocalizationManager (core) and OnDeviceLocalizationManager
-            // (on-device) all implement ILocalizationTarget.
             ILocalizationTarget localizationTarget = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
                 .OfType<ILocalizationTarget>()
                 .FirstOrDefault();
