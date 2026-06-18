@@ -40,7 +40,8 @@ namespace MultiSet
                 if (m_meshToggle != null)
                 {
                     m_meshToggle.OnToggleChanged += OnToggleChanged;
-                    m_meshToggle.SetStateImmediately(false);
+                    // Default the toggle ON so the mesh is shown as soon as it is ready
+                    m_meshToggle.SetStateImmediately(true);
                 }
             }
         }
