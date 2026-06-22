@@ -2,7 +2,7 @@
 SDK 1.15.0
 
 
-## [1.15.0] - 2026-20-06
+## [1.15.0] - 2026-22-06
 ### Added
 - Refactored the Project Structure
 - Added Navigation scene scripts as part of Sample scene now
