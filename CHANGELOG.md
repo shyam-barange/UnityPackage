@@ -18,7 +18,6 @@ All notable changes to the MultiSet SDK for Unity (`com.multiset.sdk`). Dates ar
 ### Fixed
 - Expired access tokens: the SDK now renews the token before it expires
 - An authentication response without a token is now reported as `AuthSuccess = false` instead of success
-- iOS 27 and later: the AR camera view was rotated in apps built with the iOS 27 SDK. Unity's ARKit plugin reads the deprecated `statusBarOrientation`
 
 ## [1.15.2] - 2026-07-22
 ### Added
